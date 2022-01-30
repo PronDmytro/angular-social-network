@@ -5,6 +5,7 @@ import { ConfigurationService } from '../configuration/configuration.service';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Router } from '@angular/router';
+import { IsEmailRegisteredResDto, LoginReqDto, LoginResDto } from '@shared/dto-types';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,6 @@ export class AuthService extends ApiService {
     super(http, conf);
 
     const token = this.getToken();
-    console.log(token);
     if (token) {
       this.isLoggedIn$.next(true);
     }
@@ -43,7 +43,6 @@ export class AuthService extends ApiService {
 
   public async authByToken(token: string): Promise<void> {
     this.localStorageService.setItem(this.AUTH_TOKEN_KEY, token);
-    console.log(token);
     this.isLoggedIn$.next(true);
   }
 
@@ -59,7 +58,7 @@ export class AuthService extends ApiService {
 
   public async isEmailRegistered(email: string): Promise<boolean> {
     const res = await firstValueFrom(
-      this.get<{ isRegistered: boolean }>('/check-email/' + encodeURIComponent(email)),
+      this.get<IsEmailRegisteredResDto>('/check-email/' + encodeURIComponent(email)),
     );
     return res.isRegistered;
   }
@@ -67,7 +66,7 @@ export class AuthService extends ApiService {
   public async auth(email: string, password: string): Promise<{ success: boolean }> {
     try {
       const resp = await firstValueFrom(
-        this.post<{ email: string, password: string }, { token: string }>('/login/', { email, password }),
+        this.post<LoginReqDto, LoginResDto>('/login/', { email, password }),
       );
       await this.authByToken(resp.token);
 
@@ -76,20 +75,6 @@ export class AuthService extends ApiService {
       return { success: false };
     }
 
-  }
-
-  public async register(data: any): Promise<{ success: boolean }> {
-
-    try {
-      const resp = await firstValueFrom(
-        this.post<any, { token: string }>('/register/', data),
-      );
-      await this.authByToken(resp.token);
-
-      return { success: true };
-    } catch (e: any) {
-      return { success: false };
-    }
   }
 
 }
