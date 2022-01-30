@@ -1,0 +1,24 @@
+{
+  "FRAME": {
+    "TITLE": "Réseau Social",
+    "HEADER": {
+      "dropdownMenu": {
+        "addUser": "Ajouter un utilisateur",
+        "logOut": "Se déconnecter"
+      }
+    }
+  },
+  "LOGIN": {
+    "title": "Connexion",
+    "emailInput": {
+      "placeholder": "E-mail",
+      "requiredError": "Veuillez entrer une adresse courriel",
+      "correctError": "Veuillez saisir une adresse e-mail correcte"
+    },
+    "passInput": {
+      "placeholder": "Mot de passe",
+      "requiredError": "Veuillez entrer un mot de passe"
+    },
+    "submitBtn": "Connectez-vous"
+  }
+}

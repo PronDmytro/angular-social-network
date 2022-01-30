@@ -1,0 +1,24 @@
+{
+  "FRAME": {
+    "TITLE": "Social Network",
+    "HEADER": {
+      "dropdownMenu": {
+        "addUser": "Add user",
+        "logOut": "Log Out"
+      }
+    }
+  },
+  "LOGIN": {
+    "title": "Login",
+    "emailInput": {
+      "placeholder": "Email",
+      "requiredError": "Please enter an email address",
+      "correctError": "Please enter a correct email address"
+    },
+    "passInput": {
+      "placeholder": "Password",
+      "requiredError": "Please enter a password"
+    },
+    "submitBtn": "Log In"
+  }
+}
