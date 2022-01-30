@@ -1,6 +1,6 @@
 <header>
   <mat-toolbar>
-    <button mat-button style="width: max-content">
+    <button mat-button style="width: max-content" [routerLink]="['users']">
       <img src="assets/logos/main-logo.svg" width="32" height="32" alt="logo">
       <span fxHide.xs class="pl-2 h3">{{'FRAME.TITLE' | translate }}</span>
     </button>
@@ -11,12 +11,14 @@
         <mat-icon>person</mat-icon>
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic">
-        <button ngbDropdownItem>Action - 1</button>
+        <button ngbDropdownItem [routerLink]="['create-edit']">
+          <mat-icon class="align-middle">add_circle_outline</mat-icon>
+          {{'FRAME.HEADER.dropdownMenu.addUser' | translate }}
+        </button>
         <button ngbDropdownItem (click)="authService.logout()">
           <mat-icon class="align-middle">logout</mat-icon>
-          Log Out
+          {{'FRAME.HEADER.dropdownMenu.logOut' | translate }}
         </button>
-        <button ngbDropdownItem>Something else is here</button>
       </div>
     </div>
   </mat-toolbar>

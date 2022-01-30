@@ -20,7 +20,7 @@ export class IsNotLoggedInGuard implements CanActivate {
 
     const isNotLoggedIn = !this.authService.isLoggedIn$.getValue();
 
-    return isNotLoggedIn || this.router.navigateByUrl('/account');
+    return isNotLoggedIn || this.router.navigateByUrl('/users');
   }
 
 }
