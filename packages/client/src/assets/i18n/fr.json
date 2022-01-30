@@ -19,6 +19,10 @@
       "placeholder": "Mot de passe",
       "requiredError": "Veuillez entrer un mot de passe"
     },
-    "submitBtn": "Connectez-vous"
+    "submitBtn": "Connectez-vous",
+    "err": {
+      "title": "Échec de la connexion",
+      "msg": "Données incorrectes"
+    }
   }
 }

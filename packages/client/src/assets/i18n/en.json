@@ -19,6 +19,10 @@
       "placeholder": "Password",
       "requiredError": "Please enter a password"
     },
-    "submitBtn": "Log In"
+    "submitBtn": "Log In",
+    "err": {
+      "title": "Login failed",
+      "msg": "Incorrect data"
+    }
   }
 }
