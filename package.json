@@ -31,6 +31,8 @@
     "docker:postgres-db:stop": "docker-compose -f tools/database/docker-compose.database.yml stop postgres",
     "docker:postgres-db:delete": "docker-compose -f tools/database/docker-compose.database.yml rm -f -v postgres",
     "docker:postgres-db:reset": "run-s docker:postgres-db:stop docker:postgres-db:delete docker:postgres-db:start",
+    "-----scripts-------": "",
+    "script:add-initial-data": "ts-node tools/scripts/add-initial-data.script.ts",
     "-----others--------": "",
     "prepare:husky": "husky install"
   },
