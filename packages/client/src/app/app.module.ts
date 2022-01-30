@@ -11,10 +11,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor';
 import { JsonDateInterceptor } from './core/interceptors/json-date.interceptor';
+import { FrameComponent } from './components/frame/frame.component';
+import { FooterComponent } from './components/frame/footer/footer.component';
+import { HeaderComponent } from './components/frame/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FrameComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

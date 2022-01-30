@@ -1,0 +1,29 @@
+<footer class="border-top pt-2" style="max-height: max-content">
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <div>
+      <button mat-button style="width: max-content">
+        <img src="assets/logos/main-logo.svg" width="28" height="28" alt="logo">
+        {{'FRAME.TITLE' | translate }}
+      </button>
+    </div>
+    <div>
+      <button mat-icon-button color="primary">
+        <img src="assets/logos/linkedin-icon-2.svg" width="28" height="28" alt="linkedin">
+      </button>
+      <button mat-icon-button color="primary">
+        <img src="assets/logos/github-icon-1.svg" width="28" height="28" alt="github">
+      </button>
+      <button mat-icon-button color="primary">
+        <img src="assets/logos/telegram-1.svg" width="28" height="28" alt="telegram">
+      </button>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" class="pb-1">
+    <div *ngFor="let language of languageService.getLangs()">
+      <button mat-button (click)="languageService.setLang(language)" class="text-uppercase"
+              [ngClass]="{'font-weight-bold': languageService.getCurrentLanguage() === language}">
+        {{ language }}
+      </button>
+    </div>
+  </div>
+</footer>

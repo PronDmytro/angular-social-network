@@ -1,0 +1,10 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.dropdown-toggle::after {
+  display:none;
+}
+.dropdown-item:active {
+  background: gray;
+  color: white;
+}

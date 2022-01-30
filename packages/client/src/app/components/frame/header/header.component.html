@@ -1,0 +1,23 @@
+<header>
+  <mat-toolbar>
+    <button mat-button style="width: max-content">
+      <img src="assets/logos/main-logo.svg" width="32" height="32" alt="logo">
+      <span fxHide.xs class="pl-2 h3">{{'FRAME.TITLE' | translate }}</span>
+    </button>
+
+    <span class="spacer"></span>
+    <div ngbDropdown display="dynamic" placement="bottom-right" *ngIf="authService.isLoggedIn()">
+      <button mat-icon-button ngbDropdownToggle id="dropdownBasic" class="border border-dark">
+        <mat-icon>person</mat-icon>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic">
+        <button ngbDropdownItem>Action - 1</button>
+        <button ngbDropdownItem (click)="authService.logout()">
+          <mat-icon class="align-middle">logout</mat-icon>
+          Log Out
+        </button>
+        <button ngbDropdownItem>Something else is here</button>
+      </div>
+    </div>
+  </mat-toolbar>
+</header>
