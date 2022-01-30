@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsNotEmpty, IsString, IsUUID } from 'class-validator';
+import { IsArray, IsBoolean, IsNotEmpty, IsOptional, IsString, IsUUID } from 'class-validator';
 import { UpdateEducationDataReqDto } from './update-education-data.req.dto';
 
 export class UpdateUserReqDto {
@@ -22,6 +22,10 @@ export class UpdateUserReqDto {
   @IsBoolean()
   @IsNotEmpty()
   public isAdmin: boolean;
+
+  @IsString()
+  @IsOptional()
+  public avatar?: string;
 
   @IsArray()
   @IsNotEmpty()

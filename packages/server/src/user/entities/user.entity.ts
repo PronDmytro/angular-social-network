@@ -1,8 +1,9 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ArrayMaxSize, IsArray, IsBoolean, IsEmail, IsString, IsUUID, MaxLength } from 'class-validator';
 import { TimestampEntity } from '../../core/entities/timestamp.entity';
 import { EducationEntity } from './education.entity';
 import { Default } from '../../core/class-transformers/default';
+import { AvatarFileEntity } from './avatar-file.entity';
 
 @Entity('user')
 export class UserEntity extends TimestampEntity {
@@ -32,6 +33,9 @@ export class UserEntity extends TimestampEntity {
   @IsBoolean()
   @Column({ default: false })
   public isAdmin: boolean;
+
+  @OneToOne(() => AvatarFileEntity, (file) => file.user, { cascade: true, eager: true })
+  public avatar: AvatarFileEntity;
 
   @ArrayMaxSize(100)
   @IsArray()

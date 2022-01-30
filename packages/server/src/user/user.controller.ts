@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Delete, UseGuards, Put } from '@nestjs/common';
-import { UserService } from './user.service';
+import { DataToCreateUser, UserService } from './user.service';
 import { JwtAuthGuard } from '../auth/jwt/jwt-auth.guard';
 import { UserEntity } from './entities/user.entity';
 import { CurrentUser } from '../core/decorators/current-user.decorator';
@@ -7,12 +7,17 @@ import { UserDataResDto } from './dto/res/user-data.res.dto';
 import { CreateUserReqDto } from './dto/req/create-user.req.dto';
 import { IsAdminGuard } from './guard/is-admin.guard';
 import { UpdateUserReqDto } from './dto/req/update-user.req.dto';
+import { DeepPartial } from 'typeorm';
+import { ToolsService } from '../core/tools.service';
 
 @Controller('user')
 @UseGuards(JwtAuthGuard)
 export class UserController {
 
-  public constructor(private readonly userService: UserService) {
+  public constructor(
+    private readonly userService: UserService,
+    private readonly toolsService: ToolsService,
+  ) {
   }
 
   @Get('me')
@@ -23,7 +28,11 @@ export class UserController {
   @Post('create')
   @UseGuards(IsAdminGuard)
   public async create(@Body() createUserData: CreateUserReqDto) {
-    return await this.userService.create(createUserData);
+    const data: DeepPartial<DataToCreateUser> = {
+      ...createUserData,
+      avatar: this.toolsService.imageBase64ToBuffer(createUserData.avatar),
+    };
+    return await this.userService.create(data);
   }
 
   @Get('get-all')

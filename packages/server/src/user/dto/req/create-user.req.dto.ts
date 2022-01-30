@@ -23,6 +23,10 @@ export class CreateUserReqDto {
   @IsNotEmpty()
   public isAdmin: boolean;
 
+  @IsString()
+  @IsNotEmpty()
+  public avatar: string;
+
   @IsNotEmpty()
   public educationData: CreateEducationDataReqDto[];
 
