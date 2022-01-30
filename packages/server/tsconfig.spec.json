@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "outDir": "./dist/tests",
+  "types": ["jest"],
+  "include": ["**/*spec.ts"],
+  "exclude": ["node_modules"]
+}

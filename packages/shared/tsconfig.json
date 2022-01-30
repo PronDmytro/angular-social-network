@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dto-types",
+    "emitDeclarationOnly": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "removeComments": true,
+    "target": "es2017",
+    "newLine": "lf"
+  },
+  "include": ["../server/src/**/*.dto.ts"],
+  "exclude": [
+    "**/node_modules/**/*",
+    "**/*.spec.ts"
+  ]
+}

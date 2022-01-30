@@ -1,0 +1,17 @@
+{
+  "name": "shared",
+  "packageManager": "yarn@3.1.0",
+  "scripts": {
+    "generate:dto": "run-s -c -n -l remove-shared-dtos-types generate:dto-defititions generate:dto-barrels:all",
+    "generate:dto-defititions": "tsc",
+    "generate:dto-barrels:user": "barrelsby --directory ./dto-types/ --delete --name index.d.ts -q",
+    "generate:dto-barrels:all": "run-p -n -l -c generate:dto-barrels:user",
+    "remove-shared-dtos-types": "shx rm -r ./dto-types/"
+  },
+  "dependencies": {
+    "barrelsby": "^2.3.2",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.4",
+    "typescript": "~4.5.5"
+  }
+}

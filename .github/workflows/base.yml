@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build + Test + Lint
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  install_lint_test_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - uses: actions/cache@v2
+        id: node_modules-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: "Install dependencies"
+        if: steps.node_modules-cache.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: "Lint"
+        run: yarn run lint
+
+      - name: "Start DB"
+        run: yarn run docker:postgres-db:start
+
+      - name: "Unit/integration tests"
+        env:
+          DB_TYPE: postgres
+          DATABASE_URL: postgres://test:test@localhost:5432/test
+        run: yarn run test

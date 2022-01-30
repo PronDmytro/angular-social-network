@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["src/**/*.spec.ts"],
+  "signal": "SIGKILL",
+  "exec": "yarn run ts-node"
+}
