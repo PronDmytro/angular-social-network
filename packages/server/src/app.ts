@@ -7,6 +7,7 @@ import { Logger } from 'nestjs-pino';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import * as compression from 'compression';
 import * as SlowDown from 'express-slow-down';
+import { config } from 'aws-sdk';
 
 export async function createMainApp() {
   const appOptions: NestApplicationOptions = {
@@ -40,6 +41,11 @@ export async function createMainApp() {
     }),
   );
 
+  config.update({
+    accessKeyId: conf.awsCredentials.accessKeyId,
+    secretAccessKey: conf.awsCredentials.secretAccessKey,
+    region: conf.awsCredentials.region,
+  });
 
   return app;
 }

@@ -39,6 +39,12 @@ const conf = {
   log: {
     removeHeaders: parseBool(env.LOG_REMOVE_HEADERS, isProdEnv),
   },
+  awsCredentials: {
+    region: env.AWS_REGION,
+    accessKeyId: env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+    bucketName: env.AWS_BUCKET_NAME,
+  },
 };
 
 if (!isTestEnv && findUndefinedProperty(conf)) {
