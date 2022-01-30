@@ -4973,6 +4973,7 @@ __metadata:
     karma-coverage: ~2.1.0
     karma-jasmine: ~4.0.1
     karma-jasmine-html-reporter: ~1.7.0
+    ng-http-loader: ^11.0.1
     ngx-toastr: ^14.2.1
     rxjs: ~7.5.2
     tslib: ^2.3.1
@@ -10385,6 +10386,17 @@ __metadata:
   peerDependencies:
     pino-http: ^6.4.0
   checksum: ab61a19ae1945b3c49b2bbd65814504d50870444059a5e2b42870d07d91997e19419fb358f5a314b87f43027dbc8c86a95bc6fb91e8ec52a9d32ba91ff9b6e7b
+  languageName: node
+  linkType: hard
+
+"ng-http-loader@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "ng-http-loader@npm:11.0.1"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    rxjs: ^7.4.0
+  checksum: 1429ab75a1e3fbd5c4eb4092e5093c23c6731b4ee36662c0082ded2987c2e2db973d78e3a7fd19a045c91438c029207ba5cad0b207fc27cc89a1e9f1efe70a47
   languageName: node
   linkType: hard
 

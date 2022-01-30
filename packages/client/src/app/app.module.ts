@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/material/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpTokenInterceptor } from './core/interceptors/http.token.interceptor';
 import { JsonDateInterceptor } from './core/interceptors/json-date.interceptor';
 import { FrameComponent } from './components/frame/frame.component';
@@ -16,6 +16,7 @@ import { FooterComponent } from './components/frame/footer/footer.component';
 import { HeaderComponent } from './components/frame/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     AppRoutingModule,
     InternationalizationModule,
     ToastrModule.forRoot(),
