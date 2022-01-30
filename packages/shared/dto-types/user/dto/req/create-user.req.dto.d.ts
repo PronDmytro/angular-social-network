@@ -5,5 +5,6 @@ export declare class CreateUserReqDto {
     email: string;
     password: string;
     isAdmin: boolean;
+    avatar: string;
     educationData: CreateEducationDataReqDto[];
 }

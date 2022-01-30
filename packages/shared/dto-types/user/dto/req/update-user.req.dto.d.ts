@@ -5,5 +5,6 @@ export declare class UpdateUserReqDto {
     surname: string;
     email: string;
     isAdmin: boolean;
+    avatar?: string;
     educationData: UpdateEducationDataReqDto[];
 }
