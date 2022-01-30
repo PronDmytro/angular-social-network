@@ -11,6 +11,8 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { ExceptionsModule } from './core/exceptions/exceptions.module';
 import { pinoConf } from './core/pino-logger-config';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -26,6 +28,8 @@ import { pinoConf } from './core/pino-logger-config';
       limit: conf.rateLimit.throttleLimit,
     }),
     ExceptionsModule,
+    UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
