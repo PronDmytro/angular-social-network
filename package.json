@@ -34,7 +34,8 @@
     "-----scripts-------": "",
     "script:add-initial-data": "ts-node tools/scripts/add-initial-data.script.ts",
     "-----others--------": "",
-    "prepare:husky": "husky install"
+    "prepare:husky": "husky install",
+    "generate:dto": "yarn workspace shared run generate:dto"
   },
   "lint-staged": {
     "packages/client/src/**/*.{ts,html}": "yarn workspace client eslint",
