@@ -14,6 +14,8 @@ import { JsonDateInterceptor } from './core/interceptors/json-date.interceptor';
 import { FrameComponent } from './components/frame/frame.component';
 import { FooterComponent } from './components/frame/footer/footer.component';
 import { HeaderComponent } from './components/frame/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { HeaderComponent } from './components/frame/header/header.component';
     FrameComponent,
     FooterComponent,
     HeaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { HeaderComponent } from './components/frame/header/header.component';
     MaterialModule,
     NgbModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },

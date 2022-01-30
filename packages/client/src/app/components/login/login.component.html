@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center stretch" class="h-100 ">
+  <div fxLayout="row" fxLayoutAlign="center stretch">
+    <mat-card class="align-middle justify-content-center w-25 m-1" style="min-width: max-content">
+      <mat-card-header class="justify-content-center">
+        <h2>{{'LOGIN.title' | translate }}</h2>
+      </mat-card-header>
+      <mat-card-content >
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" fxLayout="column" fxLayoutAlign="space-between stretch">
+          <mat-form-field  appearance="outline">
+            <input matInput formControlName='email' type='email'>
+            <mat-label>{{'LOGIN.emailInput.placeholder' | translate }}</mat-label>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">{{'LOGIN.emailInput.requiredError' | translate }}</mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">{{'LOGIN.emailInput.correctError' | translate }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{'LOGIN.passInput.placeholder' | translate }}</mat-label>
+            <input matInput formControlName='password'  type='password' [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">{{'LOGIN.passInput.requiredError' | translate }}</mat-error>
+          </mat-form-field>
+          <button mat-flat-button color='primary' class="mt-2" type='submit'>{{'LOGIN.submitBtn' | translate }}</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
