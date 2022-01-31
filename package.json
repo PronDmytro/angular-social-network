@@ -17,7 +17,7 @@
     "build:server": "yarn workspace server build:prod",
     "build:prod": "run-s build:client build:server copy:client",
     "build:prod:with-env": "run-s build:prod copy:env",
-    "copy:client": "shx cp -r packages/client/dist/client/* packages/server/dist/static/client/",
+    "copy:client": "shx mkdir -p packages/server/dist/static/client/ && shx cp -r packages/client/dist/client/* packages/server/dist/static/client/",
     "copy:env": "shx cp packages/server/src/.env packages/server/dist/src/.env",
     "-------tests------": "",
     "test": "run-p -n -l test:server test:client",
