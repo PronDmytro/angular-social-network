@@ -41,4 +41,4 @@ jobs:
         env:
           DB_TYPE: postgres
           DATABASE_URL: postgres://test:test@localhost:5432/test
-        run: yarn run test
+        run: yarn run test:server
