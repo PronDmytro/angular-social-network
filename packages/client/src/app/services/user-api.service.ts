@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../core/services/api/api.service';
 import { firstValueFrom } from 'rxjs';
-import { CreateUserReqDto, UpdateUserReqDto, UserDataResDto } from '@shared/dto-types';
+import { CreateUserReqDto, UpdateEducationDataReqDto, UpdateUserReqDto, UserDataResDto } from '@shared/dto-types';
 
 export type UserData = UserDataResDto;
+export type EducationData = UpdateEducationDataReqDto;
 
 @Injectable({
   providedIn: 'root',
