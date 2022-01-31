@@ -103,6 +103,9 @@
       }
     }
   },
+  "USER-LIST": {
+    "EMPTY": "No data"
+  },
   "USER-CARD": {
     "MODAL": {
       "HEADER": "Profile deletion",
