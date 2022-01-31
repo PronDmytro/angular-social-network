@@ -4,6 +4,7 @@ import { FrameComponent } from './components/frame/frame.component';
 import { IsNotLoggedInGuard } from './core/guards/is-not-logged-in.guard';
 import { LoginComponent } from './components/login/login.component';
 import { IsLoggedInGuard } from './core/guards/is-logged-in.guard';
+import { IsAdminGuard } from './core/guards/is-admin.guard';
 
 const routes: Routes = [
   {
@@ -32,10 +33,12 @@ const routes: Routes = [
             loadChildren: () => import('./components/users/users.module').then((m) => m.UsersModule),
           },
           {
+            canLoad: [IsAdminGuard],
             path: 'create-edit',
             loadChildren: () => import('./components/create-edit-user/create-edit-user.module').then((m) => m.CreateEditUserModule),
           },
           {
+            canLoad: [IsAdminGuard],
             path: 'create-edit/:id',
             loadChildren: () => import('./components/create-edit-user/create-edit-user.module').then((m) => m.CreateEditUserModule),
           },
