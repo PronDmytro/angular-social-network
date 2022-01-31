@@ -118,6 +118,9 @@
     }
   },
   "USER-LIST": {
+    "SEARCH": {
+      "PLACEHOLDER": "Recherche d'utilisateurs"
+    },
     "EMPTY": "Pas de données"
   },
   "USER-INFO": {

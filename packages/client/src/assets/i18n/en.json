@@ -104,6 +104,9 @@
     }
   },
   "USER-LIST": {
+    "SEARCH": {
+      "PLACEHOLDER": "Users search"
+    },
     "EMPTY": "No data"
   },
   "USER-CARD": {

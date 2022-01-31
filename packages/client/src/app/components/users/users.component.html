@@ -4,7 +4,21 @@
   </ng-container>
 
   <ng-container *ngIf='users'>
-    <ng-container *ngFor='let user of users'>
+    <form>
+      <mat-form-field appearance="fill" class='w-100'>
+        <mat-label>{{'USER-LIST.SEARCH.PLACEHOLDER' | translate }}</mat-label>
+        <input matInput
+               aria-label="State"
+               [matAutocomplete]="auto"
+               [formControl]="stateCtrl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+            <span>{{user.name}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+    <ng-container *ngFor='let user of filteredUsers | async'>
       <app-user-card [user]='user' class='m-5'></app-user-card>
     </ng-container>
   </ng-container>
