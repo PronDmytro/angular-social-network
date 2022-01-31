@@ -40,12 +40,22 @@ export class UserDataService {
     return await this.userApiService.getUserDataById(id);
   }
 
-  public async createUser(userData: CreateUserReqDto): Promise<null> {
-    return await this.userApiService.createUser(userData);
+  public async createUser(userData: CreateUserReqDto): Promise<{ success: boolean }> {
+    try {
+      await this.userApiService.createUser(userData);
+      return { success: true };
+    } catch (e: any) {
+      return { success: false };
+    }
   }
 
-  public async updateUserData(userData: UpdateUserReqDto): Promise<null> {
-    return await this.userApiService.updateUserData(userData);
+  public async updateUserData(userData: UpdateUserReqDto): Promise<{ success: boolean }> {
+    try {
+      await this.userApiService.updateUserData(userData);
+      return { success: true };
+    } catch (e: any) {
+      return { success: false };
+    }
   }
 
   public async deleteUser(id: string): Promise<null> {
