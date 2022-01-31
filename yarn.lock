@@ -411,6 +411,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/material-moment-adapter@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "@angular/material-moment-adapter@npm:13.2.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/core": ^13.0.0 || ^14.0.0-0
+    "@angular/material": 13.2.0
+    moment: ^2.18.1
+  checksum: 69978d1fb0865fdf544a8ab5f26538950f1273dd265df207d3a7681006407e5d7b75f54f0f07763574428ce0971fec154b7296595bc29b289111670b71fa1085
+  languageName: node
+  linkType: hard
+
 "@angular/material@npm:13.2.0":
   version: 13.2.0
   resolution: "@angular/material@npm:13.2.0"
@@ -4998,6 +5011,7 @@ __metadata:
     "@angular/forms": ~13.2.0
     "@angular/localize": ~13.2.0
     "@angular/material": 13.2.0
+    "@angular/material-moment-adapter": ^13.2.0
     "@angular/platform-browser": ~13.2.0
     "@angular/platform-browser-dynamic": ~13.2.0
     "@angular/router": ~13.2.0
