@@ -1,6 +1,37 @@
-<mat-card>
-  <mat-card-header>
-    <div mat-card-avatar class='example-header-image'></div>
-    <mat-card-title class='m-0 mt-2'>{{user| credentials}}</mat-card-title>
+<mat-card (click)='detailed()'>
+  <mat-card-header class='w-100'>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <img mat-card-avatar class='mr-3' [src]="user?.avatar?.url ?? 'assets/notfound.png'">
+      <mat-card-title class='m-0 mt-2'>{{user| credentials}}</mat-card-title>
+    </div>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)='deleteUser(content)' onclick='event.stopPropagation();'>
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-card-header>
 </mat-card>
+
+<ng-template #content let-modal>
+  <div class='modal-header'>
+    <h4 class='modal-title' id='modal-title'>
+      {{'USER-CARD.MODAL.HEADER' | translate }}
+    </h4>
+    <button type='button' class='close' aria-describedby='modal-title' (click)="modal.dismiss('Cross click')">
+      <span aria-hidden='true'>&times;</span>
+    </button>
+  </div>
+  <div class='modal-body'>
+    <p><strong>{{'USER-CARD.MODAL.BODY.STRONG-TEXT' | translate }}</strong></p>
+    <p>{{'USER-CARD.MODAL.BODY.TEXT' | translate }}
+      <span class='text-danger'>{{'USER-CARD.MODAL.BODY.DANGER-TEXT' | translate }}</span>
+    </p>
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-outline-secondary' (click)="modal.dismiss('0')">
+      {{'USER-CARD.MODAL.ACTIONS.CANCEL' | translate }}
+    </button>
+    <button type='button' class='btn btn-danger' (click)="modal.close('1')">
+      {{'USER-CARD.MODAL.ACTIONS.CONFIRM' | translate }}
+    </button>
+  </div>
+</ng-template>

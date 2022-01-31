@@ -102,5 +102,25 @@
         "notFound": "Utilisateur non trouvé"
       }
     }
+  },
+  "USER-CARD": {
+    "MODAL": {
+      "HEADER": "Suppression de profil",
+      "ACTIONS": {
+        "CONFIRM": "D'accord",
+        "CANCEL": "Annuler"
+      },
+      "BODY": {
+        "STRONG-TEXT": "Voulez-vous vraiment supprimer ce profil?",
+        "TEXT": "Toutes les informations associées à ce profil d'utilisateur seront définitivement supprimées.",
+        "DANGER-TEXT": "Cette opération ne peut pas être annulée."
+      }
+    }
+  },
+  "USER-INFO": {
+    "EDUCATION": "Éducation"
+  },
+  "EDUCATION-INFO": {
+    "GRADE": "Classe"
   }
 }

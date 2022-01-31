@@ -28,6 +28,10 @@ const routes: Routes = [
             loadChildren: () => import('./components/users/users.module').then((m) => m.UsersModule),
           },
           {
+            path: 'users/:id',
+            loadChildren: () => import('./components/users/users.module').then((m) => m.UsersModule),
+          },
+          {
             path: 'create-edit',
             loadChildren: () => import('./components/create-edit-user/create-edit-user.module').then((m) => m.CreateEditUserModule),
           },

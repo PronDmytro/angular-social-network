@@ -102,5 +102,25 @@
         "notFound": "User not found"
       }
     }
+  },
+  "USER-CARD": {
+    "MODAL": {
+      "HEADER": "Profile deletion",
+      "ACTIONS": {
+        "CONFIRM": "Ok",
+        "CANCEL": "Cancel"
+      },
+      "BODY": {
+        "STRONG-TEXT": "Are you sure you want to delete this profile?",
+        "TEXT": "All information associated to this user profile will be permanently deleted.",
+        "DANGER-TEXT": "This operation cannot be undone."
+      }
+    }
+  },
+  "USER-INFO": {
+    "EDUCATION": "Education"
+  },
+  "EDUCATION-INFO": {
+    "GRADE": "Grade"
   }
 }
