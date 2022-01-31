@@ -14,7 +14,7 @@ export class UserCardComponent implements OnInit {
 
   public constructor(
     private router: Router,
-    private userDataService: UserDataService,
+    public userDataService: UserDataService,
     private modalService: NgbModal,
   ) {
   }
@@ -38,5 +38,8 @@ export class UserCardComponent implements OnInit {
       });
   }
 
+  public async editUser() {
+    await this.router.navigate(['create-edit/' + this.user.id]);
+  }
 
 }

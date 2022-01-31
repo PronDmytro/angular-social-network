@@ -5,7 +5,10 @@
       <mat-card-title class='m-0 mt-2'>{{user| credentials}}</mat-card-title>
     </div>
     <span class="spacer"></span>
-    <button mat-icon-button (click)='deleteUser(content)' onclick='event.stopPropagation();'>
+    <button mat-icon-button *ngIf='userDataService.isAdmin()' (click)='editUser()' onclick='event.stopPropagation();'>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf='userDataService.isAdmin()' (click)='deleteUser(content)' onclick='event.stopPropagation();'>
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card-header>
