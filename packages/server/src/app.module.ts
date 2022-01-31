@@ -21,7 +21,7 @@ import { AuthModule } from './auth/auth.module';
     LoggerModule.forRoot(pinoConf),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'static', 'client'),
-      serveRoot: '/app',
+      serveRoot: '/',
     }),
     ThrottlerModule.forRoot({
       ttl: conf.rateLimit.throttleTtlSeconds,
