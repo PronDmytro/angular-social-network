@@ -1,18 +1,18 @@
-<mat-card class="container mt-0 mt-sm-3 mb-0 mb-sm-3">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-button [routerLink]="['../']" fxFlexAlign="baseline">
+<mat-card class='container mt-0 mt-sm-3 mb-0 mb-sm-3'>
+  <div fxLayout='row' fxLayoutAlign='space-between center'>
+    <button mat-button [routerLink]="['../']" fxFlexAlign='baseline'>
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <mat-card-title-group fxFlex="99">
-      <mat-card-title class="text-wrap">
+    <mat-card-title-group fxFlex='99'>
+      <mat-card-title class='text-wrap'>
         {{user?.name}} {{user?.surname}}
       </mat-card-title>
       <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
-      <img mat-card-md-image  class='d-none d-sm-block' [src]="user?.avatar?.url ?? 'assets/notfound.png'" >
+      <img mat-card-md-image class='d-none d-sm-block' [src]="user?.avatar?.url ?? 'assets/notfound.png'">
     </mat-card-title-group>
   </div>
 
-  <mat-card-content>
+  <mat-card-content *ngIf='user?.educationData?.length!==0'>
     <h2>
       {{'USER-INFO.EDUCATION' | translate }}
     </h2>
