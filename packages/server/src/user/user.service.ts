@@ -27,7 +27,7 @@ export class UserService {
   }
 
   public async create(createUserData: DeepPartial<DataToCreateUser>) {
-    const avatar = await this.uploadAvatar(<Buffer>createUserData.avatar);
+    const avatar = createUserData.avatar ? await this.uploadAvatar(<Buffer>createUserData.avatar) : null;
     const user = this.userRepository.create({
       name: createUserData.name,
       surname: createUserData.surname,
@@ -57,6 +57,11 @@ export class UserService {
     user.surname = dataToUpdate.surname;
     user.email = dataToUpdate.email;
     user.isAdmin = dataToUpdate.isAdmin;
+
+    if (dataToUpdate.password) {
+      user.passwordHash = dataToUpdate.password;
+    }
+
     if (dataToUpdate.avatar) {
       await this.avatarFileRepository.delete({ user: user });
       user.avatar = await this.uploadAvatar(<Buffer>(this.toolsService.imageBase64ToBuffer(dataToUpdate.avatar)));

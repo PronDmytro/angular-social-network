@@ -19,6 +19,10 @@ export class UpdateUserReqDto {
   @IsNotEmpty()
   public email: string;
 
+  @IsString()
+  @IsOptional()
+  public password?: string;
+
   @IsBoolean()
   @IsNotEmpty()
   public isAdmin: boolean;
