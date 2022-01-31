@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth/auth.service';
+import { UserDataService } from '../../../services/user-data.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import { AuthService } from '../../../core/services/auth/auth.service';
 export class HeaderComponent {
 
   public constructor(
-    public authService: AuthService,
-  ) { }
+    public readonly authService: AuthService,
+    public readonly userDataService: UserDataService,
+  ) {
+  }
 
 }

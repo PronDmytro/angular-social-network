@@ -11,7 +11,7 @@
         <mat-icon>person</mat-icon>
       </button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic">
-        <button ngbDropdownItem [routerLink]="['create-edit']">
+        <button ngbDropdownItem [routerLink]="['create-edit']" *ngIf='userDataService.isAdmin()'>
           <mat-icon class="align-middle">add_circle_outline</mat-icon>
           {{'FRAME.HEADER.dropdownMenu.addUser' | translate }}
         </button>
