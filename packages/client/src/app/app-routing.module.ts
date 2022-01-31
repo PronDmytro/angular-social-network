@@ -31,6 +31,10 @@ const routes: Routes = [
             path: 'create-edit',
             loadChildren: () => import('./components/create-edit-user/create-edit-user.module').then((m) => m.CreateEditUserModule),
           },
+          {
+            path: 'create-edit/:id',
+            loadChildren: () => import('./components/create-edit-user/create-edit-user.module').then((m) => m.CreateEditUserModule),
+          },
         ],
       },
       { path: '**', redirectTo: 'users', pathMatch: 'full' },

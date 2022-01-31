@@ -24,5 +24,83 @@
       "title": "Login failed",
       "msg": "Incorrect data"
     }
+  },
+  "CREATE-EDIT": {
+    "FORM": {
+      "placeholder": "Step 1",
+      "nameInput": {
+        "placeholder": "Name",
+        "requiredError": "This field is required",
+        "correctError": "Please enter a correct name"
+      },
+      "surnameInput": {
+        "placeholder": "Surname",
+        "requiredError": "This field is required",
+        "correctError": "Please enter a correct email address"
+      },
+      "emailInput": {
+        "placeholder": "Email",
+        "requiredError": "This field is required",
+        "correctError": "Please enter a correct email address"
+      },
+      "passwordInput": {
+        "placeholder": "Password",
+        "requiredError": "This field is required",
+        "correctError": "Minimum 8 characters, uppercase, lowercase and number"
+      },
+      "passwordConfirmInput": {
+        "placeholder": "Password confirm",
+        "requiredError": "This field is required",
+        "correctError": "Password must match"
+      },
+      "adminCheckBox": {
+        "placeholder": "Make the user an administrator"
+      },
+      "avatarInput": {
+        "placeholder": "Choose avatar",
+        "requiredError": "This field is required",
+        "err": "Bad image"
+      },
+      "educationForm": {
+        "placeholder": "Step 2",
+        "empty": "Firstly add education fields",
+        "school": {
+          "placeholder": "School",
+          "requiredError": "This field is required"
+        },
+        "degree": {
+          "placeholder": "Degree",
+          "requiredError": "This field is required"
+        },
+        "fieldOfStudy": {
+          "placeholder": "Field of study",
+          "requiredError": "This field is required"
+        },
+        "grade": {
+          "placeholder": "Grade",
+          "requiredError": "This field is required"
+        },
+        "startDate": {
+          "placeholder": "Start date",
+          "requiredError": "This field is required"
+        },
+        "endDate": {
+          "placeholder": "End date (or expected)",
+          "requiredError": "This field is required",
+          "correctError": "End date can’t be earlier than start date"
+        }
+      },
+      "actions": {
+        "back": "Go back",
+        "next": "Next step",
+        "add": "Add",
+        "save": "Save"
+      },
+      "messages": {
+        "success": "Success",
+        "err": "Something went wrong",
+        "notFound": "User not found"
+      }
+    }
   }
 }

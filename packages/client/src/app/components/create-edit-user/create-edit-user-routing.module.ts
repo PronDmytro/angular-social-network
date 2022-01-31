@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateEditUserComponent } from './create-edit-user.component';
 
-const routes: Routes = [{ path: '', component: CreateEditUserComponent }];
+const routes: Routes = [
+  { path: '', component: CreateEditUserComponent },
+  { path: '/:id', component: CreateEditUserComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

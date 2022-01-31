@@ -24,5 +24,83 @@
       "title": "Échec de la connexion",
       "msg": "Données incorrectes"
     }
+  },
+  "CREATE-EDIT": {
+    "FORM": {
+      "placeholder": "Étape 1",
+      "nameInput": {
+        "placeholder": "Nom",
+        "requiredError": "Ce champ est requis",
+        "correctError": "Please enter a correct email address"
+      },
+      "surnameInput": {
+        "placeholder": "Nom de famille",
+        "requiredError": "Ce champ est requis",
+        "correctError": "Please enter a correct email address"
+      },
+      "emailInput": {
+        "placeholder": "E-mail",
+        "requiredError": "Ce champ est requis",
+        "correctError": "Veuillez saisir une adresse e-mail correcte"
+      },
+      "passwordInput": {
+        "placeholder": "Mot de passe",
+        "requiredError": "Ce champ est requis",
+        "correctError": "Minimum 8 caractères, majuscules, minuscules et chiffres"
+      },
+      "passwordConfirmInput": {
+        "placeholder": "Confirmer le mot de passe",
+        "requiredError": "Ce champ est requis",
+        "correctError": "Le mot de passe doit correspondre"
+      },
+      "avatarInput": {
+        "placeholder": "Choisissez un avatar",
+        "requiredError": "Ce champ est requis",
+        "err": "Mauvaise image"
+      },
+      "adminCheckBox": {
+        "placeholder": "Faire de l'utilisateur un administrateur"
+      },
+      "educationForm": {
+        "placeholder": "Étape 2",
+        "empty": "Ajoutez d'abord des champs d'éducation",
+        "school": {
+          "placeholder": "L'école",
+          "requiredError": "Ce champ est requis"
+        },
+        "degree": {
+          "placeholder": "Diplôme",
+          "requiredError": "Ce champ est requis"
+        },
+        "fieldOfStudy": {
+          "placeholder": "Domaine d'études",
+          "requiredError": "Ce champ est requis"
+        },
+        "grade": {
+          "placeholder": "Le grade",
+          "requiredError": "Ce champ est requis"
+        },
+        "startDate": {
+          "placeholder": "Date de début",
+          "requiredError": "Ce champ est requis"
+        },
+        "endDate": {
+          "placeholder": "Date de fin (ou prévue)",
+          "requiredError": "Ce champ est requis",
+          "correctError": "La date de fin ne peut pas être antérieure à la date de début"
+        }
+      },
+      "actions": {
+        "back": "Retourner",
+        "next": "L'étape suivante",
+        "add": "Ajouter",
+        "save": "Enregistrer"
+      },
+      "messages": {
+        "success": "Succès",
+        "err": "Quelque chose s'est mal passé",
+        "notFound": "Utilisateur non trouvé"
+      }
+    }
   }
 }

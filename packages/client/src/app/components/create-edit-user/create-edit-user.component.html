@@ -1,1 +1,188 @@
-<p>create-edit-user works!</p>
+<mat-card class='container mt-0 mt-sm-3 mb-0 mb-sm-3'>
+  <mat-stepper [linear]='true'>
+    <mat-step [stepControl]='dataForm'>
+      <ng-template matStepLabel>{{'CREATE-EDIT.FORM.placeholder' | translate }}</ng-template>
+      <form [formGroup]='dataForm' fxLayout='column' fxLayoutAlign='space-between stretch'>
+
+        <mat-form-field appearance='outline'>
+          <input matInput formControlName='name' type='text'>
+          <mat-label>{{'CREATE-EDIT.FORM.nameInput.placeholder' | translate }}</mat-label>
+          <mat-error *ngIf="dataForm.get('name')?.hasError('required')">
+            {{'CREATE-EDIT.FORM.nameInput.requiredError' | translate }}
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('name')?.hasError('specialCharacters')">
+            {{'CREATE-EDIT.FORM.nameInput.correctError' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance='outline'>
+          <input matInput formControlName='surname' type='text'>
+          <mat-label>{{'CREATE-EDIT.FORM.surnameInput.placeholder' | translate }}</mat-label>
+          <mat-error *ngIf="dataForm.get('surname')?.hasError('required')">
+            {{'CREATE-EDIT.FORM.surnameInput.requiredError' | translate }}
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('surname')?.hasError('specialCharacters')">
+            {{'CREATE-EDIT.FORM.surnameInput.correctError' | translate }}
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance='outline'>
+          <input matInput formControlName='email' type='email'>
+          <mat-label>{{'CREATE-EDIT.FORM.emailInput.placeholder' | translate }}</mat-label>
+          <mat-error *ngIf="dataForm.get('email')?.hasError('required')">
+            {{'CREATE-EDIT.FORM.emailInput.requiredError' | translate }}
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('email')?.hasError('email')">
+            {{'CREATE-EDIT.FORM.emailInput.correctError' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance='outline'>
+          <mat-label>{{'CREATE-EDIT.FORM.passwordInput.placeholder' | translate }}</mat-label>
+          <input matInput formControlName='password' type='password' [type]="hidePw ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)='hidePw = !hidePw' [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]='hidePw'>
+            <mat-icon>{{hidePw ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="dataForm.get('password')?.hasError('required')">
+            {{'CREATE-EDIT.FORM.passwordInput.requiredError' | translate }}
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('password')?.hasError('password')">
+            {{'CREATE-EDIT.FORM.passwordInput.correctError' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance='outline'>
+          <mat-label>{{'CREATE-EDIT.FORM.passwordConfirmInput.placeholder' | translate }}</mat-label>
+          <input formControlName='confirmPassword' matInput type='password'
+                 [type]="hidePWConfirm ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)='hidePWConfirm = !hidePWConfirm'
+                  [attr.aria-pressed]='hidePWConfirm'>
+            <mat-icon>{{hidePWConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="dataForm.get('confirmPassword')?.hasError('required')">
+            {{'CREATE-EDIT.FORM.passwordConfirmInput.requiredError' | translate }}
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('confirmPassword')?.hasError('mustMatch')">
+            {{'CREATE-EDIT.FORM.passwordConfirmInput.correctError' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-label class='mb-1'>{{'CREATE-EDIT.FORM.avatarInput.placeholder' | translate }}</mat-label>
+        <input formControlName='avatar' (change)='onFileSelected($event)' type='file'
+               accept='image/*'>
+        <mat-error *ngIf="dataForm.get('avatar')?.hasError('required')&&dataForm.get('avatar')?.touched">
+          {{'CREATE-EDIT.FORM.avatarInput.requiredError' | translate }}
+        </mat-error>
+
+        <mat-checkbox class='mt-2' formControlName='isAdmin'
+                      color='warn'>{{'CREATE-EDIT.FORM.adminCheckBox.placeholder' | translate }}</mat-checkbox>
+
+        <button mat-stroked-button color='primary' class='mt-2' matStepperNext (click)='next()'>
+          {{'CREATE-EDIT.FORM.actions.next' | translate }}
+        </button>
+      </form>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>{{'CREATE-EDIT.FORM.educationForm.placeholder' | translate }}</ng-template>
+
+      <form [formGroup]='educationFormGroup' class='mt-2'>
+        <ng-container *ngIf='getEducationFormsArray.controls.length>0'>
+          <div formArrayName='education' *ngFor='let item of getEducationFormsArray?.controls; let i = index;'>
+            <mat-card [formGroupName]='i' class='mb-3' fxLayout='column' fxLayoutAlign='space-evenly stretch'>
+              <mat-card-actions class='m-0' align='end'>
+                <button mat-icon-button (click)='deleteForm(i)'>
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-card-actions>
+              <mat-form-field appearance='outline'>
+                <input matInput formControlName='school' type='text'>
+                <mat-label>{{'CREATE-EDIT.FORM.educationForm.school.placeholder' | translate }}</mat-label>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('school')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.school.requiredError' | translate }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance='outline'>
+                <input matInput formControlName='degree' type='text'>
+                <mat-label>{{'CREATE-EDIT.FORM.educationForm.degree.placeholder' | translate }}</mat-label>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('degree')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.degree.requiredError' | translate }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance='outline'>
+                <input matInput formControlName='fieldOfStudy' type='text'>
+                <mat-label>{{'CREATE-EDIT.FORM.educationForm.fieldOfStudy.placeholder' | translate }}</mat-label>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('fieldOfStudy')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.fieldOfStudy.requiredError' | translate }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance='outline'>
+                <input matInput formControlName='grade' type='text'>
+                <mat-label>{{'CREATE-EDIT.FORM.educationForm.grade.placeholder' | translate }}</mat-label>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('grade')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.grade.requiredError' | translate }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance='fill'>
+                <mat-label>Month and Year</mat-label>
+                <input matInput formControlName='startDate' [matDatepicker]='dp'>
+                <mat-datepicker-toggle matSuffix [for]='dp'></mat-datepicker-toggle>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('startDate')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.startDate.requiredError' | translate }}
+                </mat-error>
+                <mat-datepicker #dp
+                                startView='multi-year'
+                                (yearSelected)="chosenYearHandler($event, i, 'startDate')"
+                                (monthSelected)="chosenMonthHandler($event, dp, i, 'startDate')"
+                                panelClass='example-month-picker'>
+                </mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance='fill'>
+                <mat-label>Month and Year</mat-label>
+                <input matInput formControlName='endDate' [matDatepicker]='dp2'>
+                <mat-datepicker-toggle matSuffix [for]='dp2'></mat-datepicker-toggle>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('endDate')?.hasError('required')">
+                  {{'CREATE-EDIT.FORM.educationForm.endDate.requiredError' | translate }}
+                </mat-error>
+                <mat-error *ngIf="getEducationFormsArray.controls[i]?.get('endDate')?.hasError('isAfter')">
+                  {{'CREATE-EDIT.FORM.educationForm.endDate.correctError' | translate }}
+                </mat-error>
+                <mat-datepicker #dp2
+                                startView='multi-year'
+                                (yearSelected)="chosenYearHandler($event, i, 'endDate')"
+                                (monthSelected)="chosenMonthHandler($event, dp2, i, 'endDate')"
+                                panelClass='example-month-picker'>
+                </mat-datepicker>
+              </mat-form-field>
+
+            </mat-card>
+          </div>
+        </ng-container>
+        <ng-container *ngIf='!getEducationFormsArray.controls.length'>
+          <p class='text-center'>
+            {{'CREATE-EDIT.FORM.educationForm.empty' | translate }}
+          </p>
+
+        </ng-container>
+        <div class='mt-2' fxLayout='row' fxLayoutAlign='space-around center'>
+          <button mat-stroked-button color='primary' matStepperPrevious>
+            {{'CREATE-EDIT.FORM.actions.back' | translate }}
+          </button>
+          <button mat-stroked-button color='primary' (click)='addRow()'>
+            {{'CREATE-EDIT.FORM.actions.add' | translate }}
+          </button>
+          <button mat-stroked-button color='primary' (click)='save()'>
+            {{'CREATE-EDIT.FORM.actions.save' | translate }}
+          </button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</mat-card>
